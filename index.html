@@ -58,7 +58,7 @@
             <div class="flex justify-between items-center">
                 <a href="#home" class="text-2xl font-bold text-white">PK</a>
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-white font-medium">Home</a>
+                    <a href="#home" class="nav-link text-white font-medium active">Home</a>
                     <a href="#projects" class="nav-link text-white font-medium">Projects</a>
                     <a href="#about" class="nav-link text-white font-medium">About</a>
                     <a href="#contact" class="nav-link text-white font-medium">Get in Touch</a>
@@ -72,7 +72,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden">
             <nav class="flex flex-col items-center space-y-4 px-6 py-4">
-                <a href="#home" class="nav-link text-white font-medium">Home</a>
+                <a href="#home" class="nav-link text-white font-medium active">Home</a>
                 <a href="#projects" class="nav-link text-white font-medium">Projects</a>
                 <a href="#about" class="nav-link text-white font-medium">About</a>
                 <a href="#contact" class="nav-link text-white font-medium">Get in Touch</a>
@@ -86,7 +86,7 @@
         <!-- Home Section -->
         <section id="home" class="section relative overflow-hidden text-center text-white bg-black">
             <div class="video-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
-                <iframe src="https://player.vimeo.com/video/1125074366?h=ebcd6f2f02&background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen class="video-bg"></iframe>
+                <iframe src="https://player.vimeo.com/video/1125074366?background=1&autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen class="video-bg"></iframe>
                 <div class="absolute inset-0 bg-black/60"></div>
             </div>
             <div class="relative z-10 container mx-auto px-6 flex flex-col justify-center items-center h-full">
@@ -216,19 +216,26 @@
                     e.preventDefault();
                     
                     const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
 
-                    if (targetElement) {
-                        // Close mobile menu if open
-                        if (!mobileMenu.classList.contains('hidden')) {
-                            mobileMenu.classList.add('hidden');
-                        }
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
 
-                        // Scroll to the element
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
+                    // Special case for the #home link to scroll to the top
+                    if (targetId === '#home') {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
                         });
+                    } else {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
                     }
                 });
             });
@@ -237,16 +244,18 @@
             const sections = document.querySelectorAll('section[id]');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
+                    // Check if the section is intersecting more than 50%
+                    if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                        const currentId = entry.target.id;
                         document.querySelectorAll('.nav-link').forEach(link => {
                             link.classList.remove('active');
-                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                            if (link.getAttribute('href').substring(1) === currentId) {
                                 link.classList.add('active');
                             }
                         });
                     }
                 });
-            }, { rootMargin: '-50% 0px -50% 0px' });
+            }, { threshold: 0.5 }); // Use a 50% threshold
 
             sections.forEach(section => observer.observe(section));
 
@@ -262,5 +271,4 @@
     </script>
 </body>
 </html>
-
 
