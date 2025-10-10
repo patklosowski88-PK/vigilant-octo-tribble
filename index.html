@@ -48,6 +48,80 @@
             align-items: center;
             justify-content: center;
         }
+        /* Custom Skill Badge Colors */
+        .skill-badge {
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .skill-badge:hover {
+            transform: translateY(-2px);
+        }
+        .skill-nuke {
+            background-color: rgba(212, 164, 42, 0.15);
+            border: 1px solid rgba(212, 164, 42, 0.4);
+            color: #d4a42a;
+        }
+        .skill-nuke:hover {
+            background-color: rgba(212, 164, 42, 0.3);
+            border-color: #d4a42a;
+            box-shadow: 0 0 12px rgba(212, 164, 42, 0.4);
+        }
+        .skill-ae {
+            background-color: rgba(217, 98, 204, 0.15);
+            border: 1px solid rgba(217, 98, 204, 0.4);
+            color: #d962cc;
+        }
+        .skill-ae:hover {
+            background-color: rgba(217, 98, 204, 0.3);
+            border-color: #d962cc;
+            box-shadow: 0 0 12px rgba(217, 98, 204, 0.4);
+        }
+        .skill-mocha {
+             background-color: rgba(76, 154, 159, 0.15);
+             border: 1px solid rgba(76, 154, 159, 0.4);
+             color: #4c9a9f;
+        }
+        .skill-mocha:hover {
+            background-color: rgba(76, 154, 159, 0.3);
+            border-color: #4c9a9f;
+            box-shadow: 0 0 12px rgba(76, 154, 159, 0.4);
+        }
+        .skill-resolve {
+             background-color: rgba(81, 125, 173, 0.15);
+             border: 1px solid rgba(81, 125, 173, 0.4);
+             color: #517dad;
+        }
+        .skill-resolve:hover {
+            background-color: rgba(81, 125, 173, 0.3);
+            border-color: #517dad;
+            box-shadow: 0 0 12px rgba(81, 125, 173, 0.4);
+        }
+        .skill-premiere {
+             background-color: rgba(154, 121, 255, 0.15);
+             border: 1px solid rgba(154, 121, 255, 0.4);
+             color: #9a79ff;
+        }
+        .skill-premiere:hover {
+            background-color: rgba(154, 121, 255, 0.3);
+            border-color: #9a79ff;
+            box-shadow: 0 0 12px rgba(154, 121, 255, 0.4);
+        }
+
+        /* Skill Modal Styles */
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transition: all 0.3s ease;
+        }
+        .modal-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .modal-hidden .modal-content {
+            opacity: 0;
+            transform: scale(0.95);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -141,7 +215,6 @@
 
     <!-- About Section -->
     <section id="about" class="py-20 md:py-32 bg-gray-900 relative bg-cover bg-center bg-fixed" style="background-image: url('images/Orville_ShipBlasters00.jpg');">
-        <!-- The URL above now points to the image inside your new 'images' folder -->
         <div class="absolute inset-0 bg-black/70"></div>
         <div class="container mx-auto px-6 relative z-10">
             <div class="max-w-4xl mx-auto text-center">
@@ -152,12 +225,12 @@
                 </p>
                 <div class="mt-8">
                     <h3 class="text-2xl font-semibold text-white mb-4">My Skills</h3>
-                    <div class="flex flex-wrap justify-center gap-4 text-gray-300">
-                        <span class="bg-gray-800/50 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium">Nuke</span>
-                        <span class="bg-gray-800/50 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium">After Effects</span>
-                        <span class="bg-gray-800/50 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium">Mocha Pro</span>
-                        <span class="bg-gray-800/50 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium">DaVinci Resolve</span>
-                        <span class="bg-gray-800/50 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium">Premiere Pro</span>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button class="skill-badge skill-nuke rounded-full px-4 py-2 text-sm font-medium" data-skill="nuke">Nuke</button>
+                        <button class="skill-badge skill-ae rounded-full px-4 py-2 text-sm font-medium" data-skill="ae">After Effects</button>
+                        <button class="skill-badge skill-mocha rounded-full px-4 py-2 text-sm font-medium" data-skill="mocha">Mocha Pro</button>
+                        <button class="skill-badge skill-resolve rounded-full px-4 py-2 text-sm font-medium" data-skill="resolve">DaVinci Resolve</button>
+                        <button class="skill-badge skill-premiere rounded-full px-4 py-2 text-sm font-medium" data-skill="premiere">Premiere Pro</button>
                     </div>
                 </div>
             </div>
@@ -195,33 +268,143 @@
         </div>
     </footer>
 
+    <!-- Skill Details Modal -->
+    <div id="skill-modal" class="modal-overlay modal-hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50">
+        <div class="modal-content bg-gray-800 rounded-lg shadow-2xl w-full max-w-md p-6 relative">
+            <button id="close-modal-button" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                <i data-lucide="x"></i>
+            </button>
+            <h3 id="modal-title" class="text-2xl font-bold text-white mb-4">Skill Details</h3>
+            <div id="modal-body" class="text-gray-300 space-y-2">
+                <!-- Skill details will be injected here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             lucide.createIcons();
 
+            // --- Skill Modal Data ---
+            const skillData = {
+                nuke: {
+                    title: 'The Foundry Nuke',
+                    points: [
+                        'Advanced 2D & 3D compositing workflows.',
+                        'Deep understanding of node-based operations and optimizations.',
+                        'Expertise in keying, tracking, rotoscoping, and paint.',
+                        'Experience with Python scripting for tool development.'
+                    ]
+                },
+                ae: {
+                    title: 'Adobe After Effects',
+                    points: [
+                        'High-quality motion graphics and title design.',
+                        'Complex character animation and rigging.',
+                        'Advanced effects chaining and expressions.',
+                        'Seamless integration with Premiere Pro and Photoshop.'
+                    ]
+                },
+                mocha: {
+                    title: 'Mocha Pro',
+                    points: [
+                        'Precision planar tracking for screen replacements and set extensions.',
+                        'Advanced rotoscoping for complex object removal.',
+                        'PowerMesh tracking for warped and organic surfaces.',
+                        'Lens calibration and 3D camera solving.'
+                    ]
+                },
+                resolve: {
+                    title: 'DaVinci Resolve',
+                    points: [
+                        'Professional color grading and correction.',
+                        'Full-suite editing from assembly to final delivery.',
+                        'Node-based color workflow in the Color page.',
+                        'Fusion page for integrated visual effects.'
+                    ]
+                },
+                premiere: {
+                    title: 'Adobe Premiere Pro',
+                    points: [
+                        'Narrative, commercial, and documentary editing.',
+                        'Multicam sequence editing and audio mixing.',
+                        'Efficient project management and media organization.',
+                        'Dynamic linking with After Effects for streamlined VFX work.'
+                    ]
+                }
+            };
+
+
+            // --- Skill Modal Logic ---
+            const skillBadges = document.querySelectorAll('.skill-badge');
+            const modal = document.getElementById('skill-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+            const closeModalButton = document.getElementById('close-modal-button');
+
+            const openModal = (skill) => {
+                const data = skillData[skill];
+                if (!data) return;
+
+                modalTitle.textContent = data.title;
+
+                // Create bullet points from data
+                const list = document.createElement('ul');
+                list.className = 'list-disc list-inside space-y-2';
+                data.points.forEach(pointText => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = pointText;
+                    list.appendChild(listItem);
+                });
+                modalBody.innerHTML = ''; // Clear previous content
+                modalBody.appendChild(list);
+
+                modal.classList.remove('modal-hidden');
+                 lucide.createIcons(); // Re-render icons if any were added
+            };
+
+            const closeModal = () => {
+                modal.classList.add('modal-hidden');
+            };
+
+            skillBadges.forEach(badge => {
+                badge.addEventListener('click', () => {
+                    const skill = badge.dataset.skill;
+                    openModal(skill);
+                });
+            });
+
+            closeModalButton.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                // Close modal if overlay is clicked, but not the content
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+             // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === "Escape" && !modal.classList.contains('modal-hidden')) {
+                    closeModal();
+                }
+            });
+
+
+            // --- Header & Navigation Logic ---
             const header = document.getElementById('header');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
 
-            // --- 1. Mobile Menu Toggle ---
-            // This just opens and closes the menu. It is simple and correct.
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
 
-            // --- 2. Smooth Scrolling for ON-PAGE links ONLY ---
-            // This specifically selects links that start with '#' (e.g., #projects).
-            // It will completely ignore the 'gallery.html' link.
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
-                    // We ONLY prevent the browser's default behavior for these on-page links.
                     e.preventDefault();
-
-                    // If the mobile menu is open, close it.
                     if (!mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                     }
-
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
 
@@ -238,12 +421,6 @@
                 });
             });
 
-            // NO OTHER LINK HANDLERS ARE NEEDED.
-            // The browser's default behavior will handle the 'gallery.html' link perfectly
-            // because we are no longer interfering with it.
-
-            // --- 3. Intersection Observer (for active link highlighting) ---
-            // This part is for styling and does not affect navigation. It is safe to keep.
             const navLinksDesktop = document.querySelectorAll('header nav .nav-link');
             const sections = document.querySelectorAll('main section');
 
@@ -254,14 +431,24 @@
             };
 
             const observer = new IntersectionObserver((entries) => {
+                let foundActive = false;
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const id = entry.target.getAttribute('id');
                         navLinksDesktop.forEach(link => {
-                            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                            const isActive = link.getAttribute('href') === `#${id}`;
+                            link.classList.toggle('active', isActive);
+                            if(isActive) foundActive = true;
                         });
                     }
                 });
+
+                if (!foundActive && window.scrollY < 200) {
+                     navLinksDesktop.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#home');
+                     });
+                }
+
             }, observerOptions);
 
             sections.forEach(section => {
