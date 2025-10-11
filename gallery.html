@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Gallery | Patrick Klosowski</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827;
+            color: #d1d5db;
+        }
+        .nav-link {
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover {
+            color: #ffffff;
+            border-bottom-color: #3b82f6;
+        }
+        /* Lightbox Styles */
+        .lightbox-overlay {
+            transition: opacity 0.3s ease;
+        }
+        .lightbox-content {
+            transition: all 0.3s ease;
+        }
+        .lightbox-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .lightbox-hidden .lightbox-content {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-gray-900/80 backdrop-blur-sm sticky top-0 left-0 right-0 z-50 border-b border-gray-700">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-white">
+                    <a href="index.html">PK</a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#home" class="nav-link py-2">Home</a>
+                    <a href="index.html#projects" class="nav-link py-2">Projects</a>
+                    <a href="gallery.html" class="nav-link py-2" style="color: #ffffff; border-bottom-color: #3b82f6;">Gallery</a>
+                    <a href="index.html#about" class="nav-link py-2">About</a>
+                    <a href="index.html#contact" class="nav-link py-2">Get in Touch</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
+            <a href="index.html#home" class="block py-3 px-6 text-center hover:bg-gray-700">Home</a>
+            <a href="index.html#projects" class="block py-3 px-6 text-center hover:bg-gray-700">Projects</a>
+            <a href="gallery.html" class="block py-3 px-6 text-center bg-gray-700">Gallery</a>
+            <a href="index.html#about" class="block py-3 px-6 text-center hover:bg-gray-700">About</a>
+            <a href="index.html#contact" class="block py-3 px-6 text-center hover:bg-gray-700">Get in Touch</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-white">Photography Gallery</h1>
+            <p class="text-lg text-gray-400 mt-2">A collection of moments captured through my lens.</p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!-- Image 1 -->
+            <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg shadow-lg">
+                <img src="https://live.staticflickr.com/7821/47425558221_82b8f073a8_b.jpg" alt="Gastown Steam Clock at night with blue tones" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
+            </div>
+            <!-- Image 2 -->
+            <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg shadow-lg">
+                <img src="https://live.staticflickr.com/1823/27957012277_723f7a267c_b.jpg" alt="Abstract light painting with green and red hues" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
+            </div>
+            <!-- Image 3 -->
+            <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg shadow-lg">
+                <img src="https://live.staticflickr.com/838/28207732037_c9ea88b174_b.jpg" alt="Close-up of a vibrant green plant with water droplets" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
+            </div>
+            <!-- Image 4 -->
+            <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg shadow-lg">
+                <img src="https://live.staticflickr.com/848/29814948958_e966d5df17_b.jpg" alt="Moody vertical shot of a silhouetted person against a bright background" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
+            </div>
+             <!-- Image 5 -->
+            <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg shadow-lg">
+                <img src="https://live.staticflickr.com/65535/54839638744_36f955ac1f_b.jpg" alt="Glass orb reflecting an inverted view of False Creek" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
+            </div>
+            <!-- Image 6 -->
+             <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg shadow-lg">
+                <img src="https://live.staticflickr.com/65535/54838545952_44bcfc7d82_b.jpg" alt="Glass orb reflecting an inverted view of Deer Lake" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
+            </div>
+            <!-- Image 7 -->
+            <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg shadow-lg">
+                <img src="https://live.staticflickr.com/65535/54839659918_ef32774974_b.jpg" alt="Landscape shot of the Torres del Paine mountains" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
+            </div>
+            <!-- Image 8 -->
+            <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg shadow-lg">
+                <img src="https://live.staticflickr.com/65535/54839659908_1f678e7708_b.jpg" alt="Soft-focus, impressionistic shot of a street scene" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
+            </div>
+             <!-- Add more gallery-item divs here as needed -->
+        </div>
+    </main>
+    
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-overlay lightbox-hidden fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-[100]">
+        <div class="lightbox-content relative">
+            <button id="close-lightbox" class="absolute -top-10 right-0 text-white text-3xl">&times;</button>
+            <img id="lightbox-img" src="" alt="Enlarged gallery view" class="max-w-[90vw] max-h-[90vh] rounded-lg">
+        </div>
+    </div>
+
+
+    <footer class="bg-gray-900 border-t border-gray-700 mt-16">
+         <div class="container mx-auto px-6 py-8 text-center">
+             <p class="text-sm text-gray-500">&copy; 2025 Patrick Klosowski. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+
+            // --- Lightbox Logic ---
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const closeLightboxButton = document.getElementById('close-lightbox');
+
+            const openLightbox = (imgSrc) => {
+                lightboxImg.src = imgSrc;
+                lightbox.classList.remove('lightbox-hidden');
+            };
+
+            const closeLightbox = () => {
+                lightbox.classList.add('lightbox-hidden');
+            };
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const img = item.querySelector('img');
+                    openLightbox(img.src);
+                });
+            });
+
+            closeLightboxButton.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === "Escape" && !lightbox.classList.contains('lightbox-hidden')) {
+                    closeLightbox();
+                }
+            });
+
+            // --- Mobile Menu Logic ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
+
