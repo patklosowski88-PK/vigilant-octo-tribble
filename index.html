@@ -48,6 +48,11 @@
             align-items: center;
             justify-content: center;
         }
+        #projects {
+             min-height: auto;
+             padding-top: 8rem;
+             padding-bottom: 8rem;
+        }
         /* Custom Skill Badge Colors */
         .skill-badge {
             transition: all 0.2s ease-in-out;
@@ -187,33 +192,31 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-16 md:py-24 bg-gray-800">
+        <section id="projects" class="bg-gray-800">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">My Work</h2>
-                    <p class="text-lg text-gray-400 mt-2">A selection of my professional projects.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">VFX Demo Reel</h2>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-gray-900 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
-                        <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Project+One" alt="Project One" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Feature Film Compositing</h3>
-                            <p class="text-gray-400">Integration of CGI elements, green screen keying, and environment creation for a major motion picture.</p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-900 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
-                        <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Project+Two" alt="Project Two" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Episodic TV Series Editing</h3>
-                            <p class="text-gray-400">Paced and structured narrative across multiple episodes, focusing on character arcs and dramatic tension.</p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-900 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
-                        <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Project+Three" alt="Project Three" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Commercial VFX</h3>
-                            <p class="text-gray-400">Product cleanup, motion graphics, and visual enhancements for a national advertising campaign.</p>
-                        </div>
+                
+                <!-- Demo Reel Embed -->
+                <div class="aspect-w-16 aspect-h-9 max-w-4xl mx-auto mb-8 rounded-lg overflow-hidden shadow-2xl">
+                    <iframe src="https://player.vimeo.com/video/1125074366?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <div class="text-center max-w-3xl mx-auto">
+                     <p class="text-lg text-gray-400 mt-2 mb-8">Click on any project below to view the detailed shot breakdown and my specific contributions.</p>
+
+                    <!-- Project Buttons -->
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="vfx-compositing.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out">
+                            VFX Compositing Reel
+                        </a>
+                        <a href="#" class="bg-gray-700 hover:bg-gray-600 text-gray-400 font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out cursor-not-allowed">
+                            Project Two (Coming Soon)
+                        </a>
+                         <a href="#" class="bg-gray-700 hover:bg-gray-600 text-gray-400 font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out cursor-not-allowed">
+                            Project Three (Coming Soon)
+                        </a>
                     </div>
                 </div>
             </div>
@@ -466,4 +469,5 @@
     </script>
 </body>
 </html>
+
 
