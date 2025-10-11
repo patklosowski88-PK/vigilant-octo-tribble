@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Compositing Portfolio / VFX Reel | Patrick Klosowski</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* bg-gray-900 */
+            color: #d1d5db; /* text-gray-300 */
+        }
+        .nav-link {
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover {
+            color: #ffffff;
+            border-bottom-color: #3b82f6; /* border-blue-500 */
+        }
+        /* Added for responsive video */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-gray-900/80 backdrop-blur-sm sticky top-0 left-0 right-0 z-50 border-b border-gray-700">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-white">
+                    <a href="index.html#home">PK</a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#home" class="nav-link py-2">Home</a>
+                    <a href="index.html#projects" class="nav-link py-2">Projects</a>
+                    <a href="gallery.html" class="nav-link py-2">Gallery</a>
+                    <a href="index.html#about" class="nav-link py-2">About</a>
+                    <a href="index.html#contact" class="nav-link py-2">Get in Touch</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
+            <a href="index.html#home" class="block py-3 px-6 text-center hover:bg-gray-700">Home</a>
+            <a href="index.html#projects" class="block py-3 px-6 text-center hover:bg-gray-700">Projects</a>
+            <a href="gallery.html" class="block py-3 px-6 text-center hover:bg-gray-700">Gallery</a>
+            <a href="index.html#about" class="block py-3 px-6 text-center hover:bg-gray-700">About</a>
+            <a href="index.html#contact" class="block py-3 px-6 text-center hover:bg-gray-700">Get in Touch</a>
+        </div>
+    </header>
+
+    <main class="py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Digital Compositing Portfolio / VFX Reel</h1>
+                
+                <!-- Vimeo Video Embed -->
+                <div class="video-container rounded-lg overflow-hidden shadow-2xl mb-6">
+                    <iframe title="vimeo-player" src="https://player.vimeo.com/video/1102299020?h=eeec0d7dc0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe>
+                </div>
+
+                <p class="text-lg text-gray-400 italic mb-12">Due to client confidentiality agreements, full breakdown and raw plate footage cannot be displayed. My contribution is listed below.</p>
+
+                <!-- Shot Breakdown Table -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left text-gray-300">
+                            <thead class="text-xs text-gray-400 uppercase bg-gray-700">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">Time Code</th>
+                                    <th scope="col" class="px-6 py-3">Technical Description</th>
+                                    <th scope="col" class="px-6 py-3">Project Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-gray-800 border-b border-gray-700 hover:bg-gray-700/50">
+                                    <td class="px-6 py-4 font-mono">0:04 - 0:09</td>
+                                    <td class="px-6 py-4">CG Set Extension and Background Integration using advanced Nuke 3D workflow.</td>
+                                    <td class="px-6 py-4 font-semibold">The Orville</td>
+                                </tr>
+                                <tr class="bg-gray-800 border-b border-gray-700 hover:bg-gray-700/50">
+                                    <td class="px-6 py-4 font-mono">0:09 - 0:19</td>
+                                    <td class="px-6 py-4">Seamless integration of Matte painting elements and detailed Set Extension work.</td>
+                                    <td class="px-6 py-4 font-semibold">Shantaram</td>
+                                </tr>
+                                <tr class="bg-gray-800 border-b border-gray-700 hover:bg-gray-700/50">
+                                    <td class="px-6 py-4 font-mono">0:19 - 0:29</td>
+                                    <td class="px-6 py-4">Integration of Matte Painting Elements and colour matching to the glow of the room, and Animating the Glow effect to awaken the room.</td>
+                                    <td class="px-6 py-4 font-semibold">Orphan Black: Echoes</td>
+                                </tr>
+                                <tr class="bg-gray-800 border-b border-gray-700 hover:bg-gray-700/50">
+                                    <td class="px-6 py-4 font-mono">0:29 - 0:33</td>
+                                    <td class="px-6 py-4">Split-screen compositing and CG element integration (smoke trail).</td>
+                                    <td class="px-6 py-4 font-semibold">I'm a Virgo</td>
+                                </tr>
+                                <tr class="bg-gray-800 border-b border-gray-700 hover:bg-gray-700/50">
+                                    <td class="px-6 py-4 font-mono">0:33 - 0:36</td>
+                                    <td class="px-6 py-4">This was a complex Multi-Element Integration and plate preparation shot. I executed a full Window Replacement and detailed cleanup of the plate, including the addition of weather lining strips for continuity. The primary task involved Multi-Pass CG Integration of the hexagonal asset into the truck bed, as well as a subtle Set Extension for the background tree. The work concluded with the Digital Screen Replacement and Look Development for the projected movie screen burn-in.</td>
+                                    <td class="px-6 py-4 font-semibold">Orphan Black: Echoes</td>
+                                </tr>
+                                <tr class="bg-gray-800 border-b border-gray-700 hover:bg-gray-700/50">
+                                    <td class="px-6 py-4 font-mono">0:36 - 0:45</td>
+                                    <td class="px-6 py-4">Movie Screen Burn-In (Digital Screen Replacement) of the projection over the drive-in screen. The work required meticulous Look Development and Color Matching to seamlessly blend the projected image into the photographed plate.</td>
+                                    <td class="px-6 py-4 font-semibold">Grease: Rise of the Pink Ladies</td>
+                                </tr>
+                                <tr class="bg-gray-800 hover:bg-gray-700/50">
+                                    <td class="px-6 py-4 font-mono">0:45 - 0:49</td>
+                                    <td class="px-6 py-4">CG integration of Lights and Lasers on the ship.</td>
+                                    <td class="px-6 py-4 font-semibold">The Orville</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 border-t border-gray-700 mt-16">
+         <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col items-center sm:flex-row sm:justify-between">
+                <div class="flex space-x-6 mb-4 sm:mb-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-lucide="github"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-lucide="linkedin"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-lucide="twitter"></i></a>
+                </div>
+                 <p class="text-sm text-gray-500">&copy; 2025 Patrick Klosowski. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
+
