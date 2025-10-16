@@ -21,20 +21,12 @@
             color: #ffffff;
             border-bottom-color: #3b82f6;
         }
-        /* Lightbox Styles */
-        .lightbox-overlay {
-            transition: opacity 0.3s ease;
+        .gallery-item img {
+            transition: transform 0.3s ease, filter 0.3s ease;
         }
-        .lightbox-content {
-            transition: all 0.3s ease;
-        }
-        .lightbox-hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .lightbox-hidden .lightbox-content {
-            opacity: 0;
-            transform: scale(0.95);
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            filter: brightness(1.1);
         }
     </style>
 </head>
@@ -74,57 +66,91 @@
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-16">
         <div class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-bold text-white">Photography Gallery</h1>
-            <p class="text-lg text-gray-400 mt-2">A collection of moments captured through my lens.</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-white">Gallery</h1>
+            <p class="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">
+                A collection of my personal photography and filmmaking work, exploring light, composition, and storytelling.
+            </p>
         </div>
 
-        <!-- Gallery Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <!-- Image 1 -->
-            <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg shadow-lg">
-                <img src="https://live.staticflickr.com/7821/47425558221_82b8f073a8_b.jpg" alt="Gastown Steam Clock at night with blue tones" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
+        <!-- Filmmaking Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-white border-b-2 border-gray-700 pb-2 mb-8">Filmmaking</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="rounded-lg shadow-lg overflow-hidden">
+                     <div style="padding:56.25% 0 0 0;position:relative;">
+                        <iframe src="https://player.vimeo.com/video/1102299020?h=eeec0d7dc0&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <script src="https://player.vimeo.com/api/player.js"></script>
+                </div>
+                <p class="text-gray-400 mt-4 text-center">This reel highlights my proficiency in drone cinematography and stabilized camera movement. This real-world experience reinforces my technical understanding of lenses, light, and composition—essential skills for post-production and visual effects.</p>
             </div>
-            <!-- Image 2 -->
-            <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg shadow-lg">
-                <img src="https://live.staticflickr.com/1823/27957012277_723f7a267c_b.jpg" alt="Abstract light painting with green and red hues" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
+        </section>
+
+        <!-- Long Exposure Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-white border-b-2 border-gray-700 pb-2 mb-8">Long Exposure</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54859661174_000e827933_b.jpg" alt="Time is Precious Long Exposure" class="w-full h-full object-cover">
+                </div>
             </div>
-            <!-- Image 3 -->
-            <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg shadow-lg">
-                <img src="https://live.staticflickr.com/838/28207732037_c9ea88b174_b.jpg" alt="Close-up of a vibrant green plant with water droplets" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
+        </section>
+
+        <!-- Cityscapes Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-white border-b-2 border-gray-700 pb-2 mb-8">Cityscapes</h2>
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/7821/47425558221_82b8f073a8_b.jpg" alt="Gastown Steam Clock in Vancouver" class="w-full h-full object-cover">
+                </div>
+                 <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54839638744_36f955ac1f_b.jpg" alt="False Creek through a glass orb" class="w-full h-full object-cover">
+                </div>
             </div>
-            <!-- Image 4 -->
-            <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg shadow-lg">
-                <img src="https://live.staticflickr.com/848/29814948958_e966d5df17_b.jpg" alt="Moody vertical shot of a silhouetted person against a bright background" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
+        </section>
+        
+        <!-- Landscapes & Nature Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-white border-b-2 border-gray-700 pb-2 mb-8">Landscapes & Nature</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/838/28207732037_c9ea88b174_b.jpg" alt="Close up of a plant with water droplets" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54838545952_44bcfc7d82_b.jpg" alt="Deer Lake through a glass orb" class="w-full h-full object-cover">
+                </div>
+                 <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54839659918_ef32774974_b.jpg" alt="Torres del Paine landscape" class="w-full h-full object-cover">
+                </div>
+                 <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54859714310_4ae486d2b9_b.jpg" alt="Vertical shot of a mountain landscape" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54839659908_1f678e7708_b.jpg" alt="Argentinian Village" class="w-full h-full object-cover">
+                </div>
             </div>
-             <!-- Image 5 -->
-            <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg shadow-lg">
-                <img src="https://live.staticflickr.com/65535/54839638744_36f955ac1f_b.jpg" alt="Glass orb reflecting an inverted view of False Creek" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
+        </section>
+
+        <!-- Portraits Section -->
+        <section>
+            <h2 class="text-2xl font-bold text-white border-b-2 border-gray-700 pb-2 mb-8">Portraits</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                 <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/848/29814948958_e966d5df17_b.jpg" alt="Portrait of a person in nature" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/1823/27957012277_723f7a267c_b.jpg" alt="A girl sitting on a country road." class="w-full h-full object-cover">
+                </div>
             </div>
-            <!-- Image 6 -->
-             <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg shadow-lg">
-                <img src="https://live.staticflickr.com/65535/54838545952_44bcfc7d82_b.jpg" alt="Glass orb reflecting an inverted view of Deer Lake" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
-            </div>
-            <!-- Image 7 -->
-            <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg shadow-lg">
-                <img src="https://live.staticflickr.com/65535/54839659918_ef32774974_b.jpg" alt="Landscape shot of the Torres del Paine mountains" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
-            </div>
-            <!-- Image 8 -->
-            <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg shadow-lg">
-                <img src="https://live.staticflickr.com/65535/54839659908_1f678e7708_b.jpg" alt="Soft-focus, impressionistic shot of a street scene" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300">
-            </div>
-             <!-- Add more gallery-item divs here as needed -->
-        </div>
+        </section>
     </main>
-    
+
     <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox-overlay lightbox-hidden fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-[100]">
-        <div class="lightbox-content relative">
-            <button id="close-lightbox" class="absolute -top-10 right-0 text-white text-3xl">&times;</button>
-            <img id="lightbox-img" src="" alt="Enlarged gallery view" class="max-w-[90vw] max-h-[90vh] rounded-lg">
-        </div>
+    <div id="lightbox" class="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50 hidden">
+        <img id="lightbox-img" src="" alt="Enlarged gallery image" class="max-w-full max-h-full object-contain">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white text-3xl">&times;</button>
     </div>
-
-
+    
     <footer class="bg-gray-900 border-t border-gray-700 mt-16">
          <div class="container mx-auto px-6 py-8 text-center">
              <p class="text-sm text-gray-500">&copy; 2025 Patrick Klosowski. All Rights Reserved.</p>
@@ -135,49 +161,45 @@
         document.addEventListener('DOMContentLoaded', function() {
             lucide.createIcons();
 
-            // --- Lightbox Logic ---
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            const closeLightboxButton = document.getElementById('close-lightbox');
-
-            const openLightbox = (imgSrc) => {
-                lightboxImg.src = imgSrc;
-                lightbox.classList.remove('lightbox-hidden');
-            };
-
-            const closeLightbox = () => {
-                lightbox.classList.add('lightbox-hidden');
-            };
-
-            galleryItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    const img = item.querySelector('img');
-                    openLightbox(img.src);
-                });
-            });
-
-            closeLightboxButton.addEventListener('click', closeLightbox);
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
-            });
-            document.addEventListener('keydown', (e) => {
-                if (e.key === "Escape" && !lightbox.classList.contains('lightbox-hidden')) {
-                    closeLightbox();
-                }
-            });
-
             // --- Mobile Menu Logic ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
+
+            // --- Lightbox Logic ---
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const imgSrc = item.querySelector('img').src;
+                    lightboxImg.src = imgSrc;
+                    lightbox.classList.remove('hidden');
+                });
+            });
+
+            const closeLightbox = () => {
+                lightbox.classList.add('hidden');
+                lightboxImg.src = '';
+            };
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === "Escape" && !lightbox.classList.contains('hidden')) {
+                    closeLightbox();
+                }
+            });
         });
     </script>
-
 </body>
 </html>
 
