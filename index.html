@@ -1,145 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patrick Klosowski - VFX Compositing Artist & Video Editor</title>
+    <title>Photography Gallery | Patrick Klosowski</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #111827; /* bg-gray-900 */
-            color: #d1d5db; /* text-gray-300 */
+            background-color: #111827;
+            color: #d1d5db;
         }
         .nav-link {
             transition: color 0.3s ease, border-bottom-color 0.3s ease;
             border-bottom: 2px solid transparent;
         }
-        .nav-link.active, .nav-link:hover {
+        .nav-link:hover {
             color: #ffffff;
-            border-bottom-color: #3b82f6; /* border-blue-500 */
+            border-bottom-color: #3b82f6;
         }
-        
-        /* Video Background */
-        #video-bg-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -100;
-            overflow: hidden;
+        .gallery-item img {
+            transition: transform 0.3s ease, filter 0.3s ease;
         }
-        #video-bg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translateX(-50%) translateY(-50%);
-        }
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0,0,0,0.6);
-            z-index: -50;
-        }
-        section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8rem 1.5rem 4rem; /* Added padding for section content */
-        }
-        #home {
-            padding: 0; /* Home section is full viewport */
-        }
-
-        /* Skill Badge Colors */
-        .skill-badge {
-            transition: all 0.3s ease;
-        }
-        
-        /* Resting State */
-        .skill-nuke    { background-color: #4D401C; border-color: #7a6a3b; color: #fde6a0; }
-        .skill-ae      { background-color: #3A2B53; border-color: #6a5a8a; color: #e6d9ff; }
-        .skill-pr      { background-color: #4D2F5B; border-color: #8a6a9a; color: #ffd9f5; }
-        .skill-resolve { background-color: #1C3B3A; border-color: #4a7a7a; color: #a0fde6; }
-        .skill-mocha   { background-color: #5C3A35; border-color: #9a7a7a; color: #ffd9d9; }
-
-        /* Hover State */
-        .skill-badge:hover {
-            transform: translateY(-4px) scale(1.05);
-        }
-        .skill-nuke:hover {
-            background-color: #E8C64F;
-            border-color: #E8C64F;
-            color: #111827;
-            box-shadow: 0 0 20px rgba(232, 198, 79, 0.7);
-        }
-        .skill-ae:hover {
-            background-color: #9370DB;
-            border-color: #9370DB;
-            color: #ffffff;
-            box-shadow: 0 0 20px rgba(147, 112, 219, 0.7);
-        }
-        .skill-pr:hover {
-            background-color: #FF4081;
-            border-color: #FF4081;
-            color: #ffffff;
-            box-shadow: 0 0 20px rgba(255, 64, 129, 0.7);
-        }
-        .skill-resolve:hover {
-            background-color: #1F7A83;
-            border-color: #1F7A83;
-            color: #ffffff;
-            box-shadow: 0 0 20px rgba(31, 122, 131, 0.7);
-        }
-        .skill-mocha:hover {
-            background-color: #9E6056;
-            border-color: #9E6056;
-            color: #ffffff;
-            box-shadow: 0 0 20px rgba(158, 96, 86, 0.7);
-        }
-
-        /* Modal Styles */
-        .modal {
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        .modal-content {
-            transition: transform 0.3s ease;
-        }
-        .modal.open {
-            opacity: 1;
-            visibility: visible;
-        }
-        .modal.open .modal-content {
-            transform: translateY(0) scale(1);
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            filter: brightness(1.1);
         }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Header & Navigation -->
-    <header id="header" class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-gray-700">
+    <header id="header" class="bg-gray-900/80 backdrop-blur-sm sticky top-0 left-0 right-0 z-50 border-b border-gray-700">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="text-2xl font-bold text-white">
-                    <a href="#home">PK</a>
+                    <a href="index.html">PK</a>
                 </div>
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link active py-2">Home</a>
-                    <a href="#projects" class="nav-link py-2">Projects</a>
-                    <a href="gallery.html" class="nav-link py-2">Gallery</a>
-                    <a href="#about" class="nav-link py-2">About</a>
-                    <a href="mailto:patklosowski88@gmail.com" class="nav-link py-2">Get in Touch</a>
+                    <a href="index.html#home" class="nav-link py-2">Home</a>
+                    <a href="index.html#projects" class="nav-link py-2">Projects</a>
+                    <a href="gallery.html" class="nav-link py-2" style="color: #ffffff; border-bottom-color: #3b82f6;">Gallery</a>
+                    <a href="index.html#about" class="nav-link py-2">About</a>
+                    <a href="index.html#contact" class="nav-link py-2">Get in Touch</a>
                 </nav>
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-white">
@@ -150,305 +55,193 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
-            <a href="#home" class="block py-3 px-6 text-center hover:bg-gray-700">Home</a>
-            <a href="#projects" class="block py-3 px-6 text-center hover:bg-gray-700">Projects</a>
-            <a href="gallery.html" class="block py-3 px-6 text-center hover:bg-gray-700">Gallery</a>
-            <a href="#about" class="block py-3 px-6 text-center hover:bg-gray-700">About</a>
-            <a href="mailto:patklosowski88@gmail.com" class="block py-3 px-6 text-center hover:bg-gray-700">Get in Touch</a>
+            <a href="index.html#home" class="block py-3 px-6 text-center hover:bg-gray-700">Home</a>
+            <a href="index.html#projects" class="block py-3 px-6 text-center hover:bg-gray-700">Projects</a>
+            <a href="gallery.html" class="block py-3 px-6 text-center bg-gray-700">Gallery</a>
+            <a href="index.html#about" class="block py-3 px-6 text-center hover:bg-gray-700">About</a>
+            <a href="index.html#contact" class="block py-3 px-6 text-center hover:bg-gray-700">Get in Touch</a>
         </div>
     </header>
 
-    <main>
-        <!-- Home Section -->
-        <section id="home" class="relative overflow-hidden text-center text-white flex flex-col items-center justify-center min-h-screen">
-            <div class="video-overlay"></div>
-            <div id="video-bg-container">
-                <iframe
-                    src="https://player.vimeo.com/video/1125074366?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
-                    frameborder="0"
-                    allow="autoplay; fullscreen"
-                    id="video-bg">
-                </iframe>
-            </div>
-            <div class="z-10 p-6">
-                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">Patrick Klosowski</h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-8">VFX Compositing Artist & Video Editor</p>
-                <div>
-                    <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out mr-4">View My Work</a>
-                    <a href="#about" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out">About Me</a>
-                </div>
-            </div>
-        </section>
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-white">Gallery</h1>
+            <p class="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">
+                A collection of my personal photography and filmmaking work, exploring light, composition, and storytelling.
+            </p>
+        </div>
 
-        <!-- Projects Section -->
-        <section id="projects" class="bg-gray-800">
-            <div class="container mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">My Work</h2>
-                    <p class="text-lg text-gray-400 mt-2">A selection of my professional projects.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    
-                    <!-- VFX Card -->
-                    <a href="vfx-compositing.html" class="group block bg-gray-900 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 shadow-lg">
-                        <img src="images/AlienCockpit_Orville00.jpg" alt="VFX Compositing Project" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">VFX Compositing</h3>
-                            <p class="text-gray-400">Detailed shot breakdowns, demo reel, and advanced Nuke workflows.</p>
-                        </div>
-                    </a>
-
-                    <!-- Video Editing Card -->
-                    <a href="video-editing.html" class="group block bg-gray-900 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 shadow-lg">
-                        <img src="images/EMA_Logo_MotionGraphic.PNG" alt="Video Editing Project" class="w-full h-56 object-cover object-center">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Video Editing & Motion Graphics</h3>
-                            <p class="text-gray-400">Short-form content, motion graphics, and narrative editing showcase.</p>
-                        </div>
-                    </a>
-
-                    <!-- Photography Card -->
-                    <a href="gallery.html" class="group block bg-gray-900 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 shadow-lg">
-                        <img src="images/Time_is_Precious_LongExposure.jpg" alt="Photography Gallery" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Photography and Filmmaking</h3>
-                            <p class="text-gray-400">A personal collection of drone cinematography, long exposure, and portrait photography.</p>
-                        </div>
-                    </a>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="bg-gray-900 relative bg-cover bg-center bg-fixed" style="background-image: url('images/Orville_ShipBlasters00.jpg');">
-            <div class="absolute inset-0 bg-black/70"></div>
-            <div class="container mx-auto relative z-10">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">About Me</h2>
-                    <img class="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-gray-700 shadow-lg" src="images/SFU_Grad_Photo_Cropped.jpg" alt="Portrait of Patrick Klosowski">
-                    <p class="text-lg md:text-xl text-gray-300 leading-relaxed bg-gray-900/50 backdrop-blur-sm p-6 rounded-lg">
-                        I am a VFX Compositor who brings a filmmaker's vision and a keen eye for detail to every project. With 5 years of dedicated post-production experience, I specialize in executing seamless visual effects and compelling narrative editing that guarantees a high-quality final product. My core passion is translating creative visions to life through technical mastery and resourceful problem-solving.
-                    </p>
-                    <div class="mt-12">
-                        <h3 class="text-2xl font-semibold text-white mb-6">My Skills</h3>
-                        <div class="flex flex-wrap justify-center gap-4">
-                            <!-- Skill Badges -->
-                            <button data-skill="nuke" class="skill-badge skill-nuke rounded-full px-5 py-2 text-sm font-semibold border-2">Nuke</button>
-                            <button data-skill="ae" class="skill-badge skill-ae rounded-full px-5 py-2 text-sm font-semibold border-2">After Effects</button>
-                            <button data-skill="pr" class="skill-badge skill-pr rounded-full px-5 py-2 text-sm font-semibold border-2">Premiere Pro</button>
-                            <button data-skill="resolve" class="skill-badge skill-resolve rounded-full px-5 py-2 text-sm font-semibold border-2">DaVinci Resolve</button>
-                            <button data-skill="mocha" class="skill-badge skill-mocha rounded-full px-5 py-2 text-sm font-semibold border-2">Mocha Pro</button>
-                        </div>
+        <!-- Filmmaking Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-white border-b-2 border-gray-700 pb-2 mb-8">Filmmaking</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="rounded-lg shadow-lg overflow-hidden">
+                     <div style="padding:56.25% 0 0 0;position:relative;">
+                         <iframe src="https://player.vimeo.com/video/1125074366?h=ebcd6f2f02&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                     </div>
+                    <script src="https://player.vimeo.com/api/player.js"></script>
+                </div>
+                <p class="text-gray-400 mt-4 text-center">This reel highlights my proficiency in drone cinematography and stabilized camera movement. This real-world experience reinforces my technical understanding of lenses, light, and composition—essential skills for post-production and visual effects.</p>
+            </div>
+        </section>
+
+        <!-- Long Exposure Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-white border-b-2 border-gray-700 pb-2 mb-8">Long Exposure</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54859661174_000e827933_b.jpg" alt="Time is Precious Long Exposure" class="w-full h-full object-cover">
+                </div>
+                <!-- NEW PHOTO 1 -->
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54890634356_80709f1f01_b.jpg" alt="Orpheum Long Exposure" class="w-full h-full object-cover">
+                </div>
+                <!-- NEW PHOTO 2 - REMOVED THE COL-SPAN CLASSES -->
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54890885679_487301b012_b.jpg" alt="6th Street Long Exposure" class="w-full h-full object-cover">
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="bg-gray-800">
-            <div class="container mx-auto">
-                   <div class="max-w-2xl mx-auto text-center">
-                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Get in Touch</h2>
-                        <p class="text-lg text-gray-400 mb-8">Have a project in mind or just want to say hello? Send me a message or email me directly at <a href="mailto:patklosowski88@gmail.com" class="text-blue-400 hover:text-blue-300">patklosowski88@gmail.com</a>.</p>
-                        <form action="#" method="POST" class="space-y-6">
-                            <input type="text" placeholder="Your Name" class="w-full bg-gray-700 text-white border-gray-600 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <input type="email" placeholder="Your Email" class="w-full bg-gray-700 text-white border-gray-600 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <textarea placeholder="Your Message" rows="5" class="w-full bg-gray-700 text-white border-gray-600 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Send Message</button>
-                        </form>
-                    </div>
+        <!-- Cityscapes Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-white border-b-2 border-gray-700 pb-2 mb-8">Cityscapes</h2>
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/7821/47425558221_82b8f073a8_b.jpg" alt="Gastown Steam Clock in Vancouver" class="w-full h-full object-cover">
+                </div>
+                 <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54839638744_36f955ac1f_b.jpg" alt="False Creek through a glass orb" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54874012872_aca6db537e_b.jpg" alt="Vancouver's Waterfront" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Landscapes & Nature Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-white border-b-2 border-gray-700 pb-2 mb-8">Landscapes & Nature</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/838/28207732037_c9ea88b174_b.jpg" alt="Close up of a plant with water droplets" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54838545952_44bcfc7d82_b.jpg" alt="Deer Lake through a glass orb" class="w-full h-full object-cover">
+                </div>
+                 <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54839659918_ef32774974_b.jpg" alt="Torres del Paine landscape" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <!-- FIXED BROKEN LINK (https://) -->
+                    <img src="https://live.staticflickr.com/65535/54839659908_1f678e7708_b.jpg" alt="Argentinian Village" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54874879211_49dbe942ae_b.jpg" alt="PK_HemlcokValley" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54875107693_91aeaaff3b_b.jpg" alt="Sunsets at Sheridan" class="w-full h-full object-cover">
+                </div>
             </div>
         </section>
 
+        <!-- Portraits Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-white border-b-2 border-gray-700 pb-2 mb-8">Portraits</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                 <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <!-- FIXED BROKEN LINK (https://) -->
+                    <img src="https://live.staticflickr.com/848/29814948958_e966d5df17_b.jpg" alt="Portrait of a person in nature" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/1823/27957012277_723f7a267c_b.jpg" alt="A girl sitting on a country road." class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <!-- FIXED BROKEN LINK (https://) -->
+                    <img src="https://live.staticflickr.com/65535/54860231638_700af04c4a_b.jpg" alt="Man sitting on a bench in Waikiki" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <!-- FIXED BROKEN LINK (https://) -->
+                    <img src="https://live.staticflickr.com/65535/54859714310_4ae486d2b9_b.jpg" alt="Martial Arts at Waikiki" class="w-full h-full object-cover">
+                </div>
+                <!-- NEW PHOTO 3 -->
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54890878144_dcf85d180f_b.jpg" alt="Katrina_Pink_Steampunk-1" class="w-full h-full object-cover">
+                </div>
+                <!-- NEW PHOTO 4 -->
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54890857843_b90ef0022b_b.jpg" alt="Katrina_Black_Smoke_v2-1" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Creative & Digital Art Section -->
+        <section>
+            <h2 class="text-2xl font-bold text-white border-b-2 border-gray-700 pb-2 mb-8">Creative & Digital Art</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/65535/54875377260_8497e501ff_b.jpg" alt="LostLands_Dino_ShilouttePostEdit-1" class="w-full h-full object-cover">
+                </div>
+                <!-- NEW PHOTO 5 -->
+                <div class="gallery-item cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://live.staticflickr.com/852/42782125405_8a0cfd89e2_b.jpg" alt="Precept #2" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="bg-gray-900 border-t border-gray-700">
-         <div class="container mx-auto px-6 py-8">
-            <div class="flex flex-col items-center sm:flex-row sm:justify-between">
-                <div class="flex space-x-6 mb-4 sm:mb-0">
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-lucide="github"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-lucide="linkedin"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-lucide="mail"></i></a>
-                </div>
-                 <p class="text-sm text-gray-500">&copy; 2025 Patrick Klosowski. All Rights Reserved.</p>
-            </div>
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50 hidden">
+        <img id="lightbox-img" src="" alt="Enlarged gallery image" class="max-w-full max-h-full object-contain">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white text-3xl">&times;</button>
+    </div>
+    
+    <footer class="bg-gray-900 border-t border-gray-700 mt-16">
+         <div class="container mx-auto px-6 py-8 text-center">
+             <p class="text-sm text-gray-500">&copy; 2025 Patrick Klosowski. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <!-- Skill Modal -->
-    <div id="skill-modal" class="modal fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 invisible">
-        <div class="modal-content bg-gray-800 text-gray-300 rounded-lg shadow-2xl w-full max-w-lg p-6 transform -translate-y-10 scale-95">
-            <div class="flex justify-between items-center mb-4">
-                <h3 id="modal-skill-title" class="text-2xl font-bold text-white">Skill Details</h3>
-                <button id="modal-close-button" class="text-gray-400 hover:text-white text-3xl">&times;</button>
-            </div>
-            <div id="modal-skill-content">
-                <ul class="list-disc list-inside space-y-2">
-                    <!-- Content will be injected by JS -->
-                </ul>
-            </div>
-        </div>
-    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             lucide.createIcons();
 
-            const header = document.getElementById('header');
+            // --- Mobile Menu Logic ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-
-            // --- Mobile Menu Toggle ---
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
 
-            // --- Smooth Scrolling for ON-PAGE links ---
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const headerOffset = header.offsetHeight;
-                        const elementPosition = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                        window.scrollTo({
-                            top: targetId === '#home' ? 0 : offsetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
+            // --- Lightbox Logic ---
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const imgSrc = item.querySelector('img').src;
+                    lightboxImg.src = imgSrc;
+                    lightbox.classList.remove('hidden');
                 });
             });
 
-            // --- Active Link Highlighting on Scroll ---
-            const navLinksDesktop = document.querySelectorAll('header nav .nav-link[href^="#"]');
-            const sections = document.querySelectorAll('main section[id]');
-            
-            const observerOptions = {
-                root: null,
-                rootMargin: `-${header.offsetHeight}px 0px -40% 0px`, // Adjust root margin
-                threshold: 0.1 // Fire when 10% of the section is visible
+            const closeLightbox = () => {
+                lightbox.classList.add('hidden');
+                lightboxImg.src = '';
             };
 
-            let activeLink = document.querySelector('header nav .nav-link.active');
-
-            const observer = new IntersectionObserver((entries) => {
-                let foundActive = false;
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        const newActiveLink = document.querySelector(`header nav .nav-link[href="#${id}"]`);
-                        
-                        if (newActiveLink) {
-                            if (activeLink) activeLink.classList.remove('active');
-                            newActiveLink.classList.add('active');
-                            activeLink = newActiveLink;
-                            foundActive = true;
-                        }
-                    }
-                });
-
-                // Fallback for home when scrolling to top
-                if (!foundActive && window.scrollY < window.innerHeight / 2) {
-                     if (activeLink) activeLink.classList.remove('active');
-                     const homeLink = document.querySelector('header nav .nav-link[href="#home"]');
-                     if (homeLink) {
-                        homeLink.classList.add('active');
-                        activeLink = homeLink;
-                     }
-                }
-
-            }, observerOptions);
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-             
-            // --- Skill Modal Logic ---
-            const skillData = {
-                'nuke': {
-                    title: 'Nuke',
-                    points: [
-                        'Advanced 3D/2.5D compositing workflows.',
-                        'Multi-pass CG integration and color matching.',
-                        'Deep compositing and complex shot management.',
-                        'Python scripting for tool creation and pipeline efficiency.'
-                    ]
-                },
-                'ae': {
-                    title: 'After Effects',
-                    points: [
-                        'Fluid motion graphics and title animation.',
-                        'Complex data visualization and infographic animation.',
-                        'Advanced keying, rotoscoping, and tracking.',
-                        'Plugin integration (Trapcode Suite, Element 3D).'
-                    ]
-                },
-                'pr': {
-                    title: 'Premiere Pro',
-                    points: [
-                        'Narrative and short-form storytelling.',
-                        'Multi-cam editing and sequence organization.',
-                        'Audio mixing, sound design, and color correction (Lumetri).',
-                        'Fast-paced editing for social media and quick turnarounds.'
-                    ]
-                },
-                'resolve': {
-                    title: 'DaVinci Resolve',
-                    points: [
-                        'Specialist color grading and look development.',
-                        'Node-based color workflow and secondary corrections.',
-                        'Full conform and finishing for delivery.',
-                        'Fusion integration for quick VFX shots.'
-                    ]
-                },
-                'mocha': {
-                    title: 'Mocha Pro',
-                    points: [
-                        'Advanced planar tracking for difficult shots.',
-                        'Complex screen inserts and corner pinning.',
-                        'Object removal and rig cleanup.',
-                        'Advanced rotoscoping and shape generation.'
-                    ]
-                }
-            };
-
-            const modal = document.getElementById('skill-modal');
-            const modalTitle = document.getElementById('modal-skill-title');
-            const modalContent = document.getElementById('modal-skill-content');
-            const closeButton = document.getElementById('modal-close-button');
-            
-            document.querySelectorAll('.skill-badge').forEach(button => {
-                button.addEventListener('click', () => {
-                    const skill = button.dataset.skill;
-                    const data = skillData[skill];
-                    
-                    if (data) {
-                        modalTitle.textContent = data.title;
-                        modalContent.innerHTML = `<ul class="list-disc list-inside space-y-2">${data.points.map(p => `<li>${p}</li>`).join('')}</ul>`;
-                        modal.classList.add('open');
-_                    }
-                });
-            });
-
-            const closeModal = () => {
-                modal.classList.remove('open');
-            };
-
-            closeButton.addEventListener('click', closeModal);
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    closeModal();
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
                 }
             });
             document.addEventListener('keydown', (e) => {
-                if (e.key === "Escape" && modal.classList.contains('open')) {
-                    closeModal();
+                if (e.key === "Escape" && !lightbox.classList.contains('hidden')) {
+                    closeLightbox();
                 }
             });
         });
